@@ -3,7 +3,7 @@ name: sync up to codecommit
 on:
   push:
     branches:
-      - main
+      - 'main'
 
 jobs:
   deploy:
@@ -11,8 +11,6 @@ jobs:
     steps:
     - uses: actions/checkout@main
     - uses: DarKeNHearT/terraform@main
-      with:
-        args: --acl public-read --follow-symlinks --delete
       env:
         AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
